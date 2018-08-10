@@ -6,9 +6,10 @@ using System.Web;
 
 namespace RestAPiServer.Models.Base
 {
-    public class BaseRepository<T> : IRepository<T>
+    public class BaseRepository<T> : IRepository<T>  where T: BaseModel 
     {
-        private List<T> customers = new List<T>();
+        private IEnumerable<T> listData;
+        private List<Customers> customers = new List<Customers>();
 
         private int _nextId = 0;
         // private int _nextId = 1;
@@ -24,44 +25,21 @@ namespace RestAPiServer.Models.Base
 
         public BaseRepository()
         {
-            _nextId = 0;
-            //if (dataType == RepoType.Projects)
-            //    initProjectsData();
-            //else if (dataType == RepoType.Employees)
-            //    initProjectsData();
+            _nextId = 0;        
         }
+  
 
-        //private void initProjectsData()
-        //{
-        //    Add(new Project { ProjectName = "build the death start", CustName = "Lord vader", CustId = 1, Tariff = 10.2 });
-        //    Add(new Project { ProjectName = "find the Millennium falcon", CustName = "Han solo", CustId = 2, Tariff = 66.7 });
-        //    Add(new Project { ProjectName = "look for the druids", CustName = "Clone trooper", CustId = 3, Tariff = 104.2 });
-        //}
-
-        //private void Add(Project project)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void initCustomersData()
-        //{
-        //    Add(new Customers { CustName = "Han solo" });
-        //    Add(new Customers { CustName = "Princess Lea" });
-        //    Add(new Customers { CustName = "Chewi" });
-        //}
-
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(List<T> listData)
         {
-            throw new NotImplementedException();
-
+            return listData;
         }
 
-        public T Get(int id)
+        public T Get(int id, List<T> listData)
         {
-            throw new NotImplementedException();
+            return listData.Find(p => p.Id == id);
         }
 
-        public T Add(T item)
+        public T Add(T item, List<T> listData)
         {
             if (item == null)
             {
@@ -69,18 +47,28 @@ namespace RestAPiServer.Models.Base
             }
          
            // item.Id = _nextId++;
-            customers.Add(item);//// ......
+            listData.Add(item);//// ......
             return item;
         }
 
-        public void Remove(int id)
+        public void Remove(int id, List<T> listData)
         {
-            throw new NotImplementedException();
+            listData.RemoveAll(p => p.Id == id);
         }
 
-        public bool Update(T item)
+        public bool Update(T item, List<T> listData)
         {
-            throw new NotImplementedException();
+            var result = true;
+            if (item == null)    //no item        
+                throw new ArgumentNullException("item");
+
+            int index = listData.FindIndex(p => p.Id == item.Id);
+            if (index == -1)   //item not found         
+                result = false;
+
+            listData.RemoveAt(index);
+            listData.Add(item);
+            return result;
         }
 
       

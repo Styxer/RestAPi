@@ -21,50 +21,29 @@ namespace RestAPiServer.Models.Customerss
            
         }
 
-        public Customers Add(Customers item)
+        public Customers Add(Customers item, List<Customers> listData = null)
         {
-           return baseRepository.Add(item);
-        //    if (item == null)
-        //    {
-        //        throw new ArgumentNullException("item Customers");
-        //    }
-
-            //    item.Id = _nextId++;
-            //    customers.Add(item);
-            //    return item;
+           return baseRepository.Add(item, listData);
         }
 
-       
-
-        public Customers Get(int id)
+        public Customers Get(int id, List<Customers> listData)
         {
-            return customers.Find(p => p.Id == id);
+            return baseRepository.Get(id, listData);
         }
 
-
-        public IEnumerable<Customers> GetAll()
+        public IEnumerable<Customers> GetAll(List<Customers> listData)
         {
-            return customers;
+            return baseRepository.GetAll(listData);
         }
 
-        public void Remove(int id)
+        public void Remove(int id, List<Customers> listData)
         {
-            customers.RemoveAll(p => p.Id == id);
+             baseRepository.Remove(id, listData);
         }
 
-        public bool Update(Customers item)
+        public bool Update(Customers item, List<Customers> listData)
         {
-            var result = true;
-            if (item == null)    //no item        
-                throw new ArgumentNullException("item");
-            
-            int index = customers.FindIndex(p => p.Id == item.Id);
-            if (index == -1)   //item not found         
-                result = false;
-            
-            customers.RemoveAt(index);
-            customers.Add(item);
-            return result;
+           return baseRepository.Update(item, listData);
         }
     }
 }
