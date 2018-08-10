@@ -11,7 +11,7 @@ namespace RestAPiServer.Controllers
     public class projectsController : ApiController
     {
 
-        static readonly IProjectRepository repo = new ProjectRepository();
+        static readonly IRepository<Project> repo = new ProjectRepository();
 
         // GET: api/projects
         public IEnumerable<Project> Get()
@@ -19,13 +19,7 @@ namespace RestAPiServer.Controllers
             return repo.GetAll();
         }
 
-        // GET: api/projects/5
-        //public Project Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        // POST: api/projects
+       
         public HttpResponseMessage Post(Project item)
         {
             item = repo.Add(item);

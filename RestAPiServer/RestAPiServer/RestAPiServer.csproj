@@ -184,11 +184,20 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\projectsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Projects\IProjectRepository.cs" />
+    <Compile Include="Models\Base\BaseModel.cs" />
+    <Compile Include="Models\Base\BaseRepository.cs" />
+    <Compile Include="Models\Base\IRepository.cs" />
+    <Compile Include="Models\Tasks\Task.cs" />
+    <Compile Include="Models\Tasks\TaskRepository.cs" />
+    <Compile Include="Models\Employees\Employees.cs" />
+    <Compile Include="Models\Employees\EmployeeRepository.cs" />
+    <Compile Include="Models\Work_Packages\WorkPackages.cs" />
+    <Compile Include="Models\Work_Packages\WorkPackagesRepository.cs" />
+    <Compile Include="Models\Customers\Customer.cs" />
+    <Compile Include="Models\Customers\CustomersRepository.cs" />
     <Compile Include="Models\Projects\Project.cs" />
     <Compile Include="Models\Projects\ProjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
