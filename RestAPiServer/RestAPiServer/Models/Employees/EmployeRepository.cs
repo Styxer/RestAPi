@@ -46,9 +46,10 @@ namespace RestAPiServer.Models.WorkPackagess
 
         }
 
-        public Employe Add(Employe item, List<Employe> listData = null, int nextID = 0)
+        public Employe Add(Employe item, List<Employe> listData = null)
         {
-           return  baseRepository.Add(item, employees, nextID);
+            item.Id = _nextId++;
+           return  baseRepository.Add(item, employees);
         }
 
         public Employe Get(int id, List<Employe> listData = null)

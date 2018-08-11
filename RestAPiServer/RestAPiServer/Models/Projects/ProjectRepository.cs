@@ -22,9 +22,10 @@ namespace RestAPiServer.Models.Projects
             Add(new Project { ProjectName = "do the Hammer Time", Tariff = 16.99, Customer = customer.Get(3) });
         }
 
-        public Project Add(Project item, List<Project> listData = null, int nextID = 1)
+        public Project Add(Project item, List<Project> listData = null)
         {
-            return baseRepository.Add(item, projects, _nextId);
+            item.Id = _nextId++;
+            return baseRepository.Add(item, projects);
         }
 
         public Project Get(int id, List<Project> listData = null)

@@ -11,12 +11,12 @@ namespace RestAPiServer.Models.Base
        // private List<T> listData;
        
 
-        private int _nextId = 0;
+      
         // private int _nextId = 1;
         
         public BaseRepository()
         {
-            _nextId = 0;        
+           
         }
   
 
@@ -30,14 +30,14 @@ namespace RestAPiServer.Models.Base
             return listData.Find(p => p.Id == id);
         }
 
-        public T Add(T item, List<T> listData, int nextId)
+        public T Add(T item, List<T> listData )
         {
             if (item == null)
             {
                 throw new ArgumentNullException("item Customers");
             }
 
-            item.Id = nextId++;
+           
             if (listData == null)
                 listData = new List<T>();
             listData.Add(item);//// ......

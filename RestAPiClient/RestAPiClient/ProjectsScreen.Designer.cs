@@ -29,16 +29,52 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ProjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tariff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(87, 73);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProjectID,
+            this.ProjectName,
+            this.CustID,
+            this.CustName,
+            this.Tariff});
+            this.dataGridView1.Location = new System.Drawing.Point(35, 37);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(684, 150);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ProjectID
+            // 
+            this.ProjectID.HeaderText = "Project ID";
+            this.ProjectID.Name = "ProjectID";
+            // 
+            // ProjectName
+            // 
+            this.ProjectName.HeaderText = "Project Name";
+            this.ProjectName.Name = "ProjectName";
+            // 
+            // CustID
+            // 
+            this.CustID.HeaderText = "Customer ID";
+            this.CustID.Name = "CustID";
+            // 
+            // CustName
+            // 
+            this.CustName.HeaderText = "Customer Name";
+            this.CustName.Name = "CustName";
+            // 
+            // Tariff
+            // 
+            this.Tariff.HeaderText = "Tariff";
+            this.Tariff.Name = "Tariff";
             // 
             // ProjectsScreen
             // 
@@ -56,5 +92,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tariff;
     }
 }

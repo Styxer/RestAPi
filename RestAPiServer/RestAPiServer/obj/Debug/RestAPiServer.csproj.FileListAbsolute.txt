@@ -90,7 +90,6 @@ D:\repos\RestAPi\RestAPiServer\RestAPiServer\bin\Microsoft.AI.DependencyCollecto
 D:\repos\RestAPi\RestAPiServer\RestAPiServer\bin\Microsoft.AI.WindowsServer.xml
 D:\repos\RestAPi\RestAPiServer\RestAPiServer\bin\Microsoft.AI.Web.xml
 D:\repos\RestAPi\RestAPiServer\RestAPiServer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.csprojAssemblyReference.cache
 D:\repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.csproj.CoreCompileInputs.cache
 D:\repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.csproj.CopyComplete
 D:\repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.dll

@@ -10,7 +10,7 @@ namespace RestAPiServer.Models.Projects
     {
         IEnumerable<T> GetAll(List<T> listData = null);
         T Get(int id, List<T> listData = null);
-        T Add(T item, List<T> listData = null, int nextID  = 1);      
+        T Add(T item, List<T> listData = null);      
         void Remove(int id, List<T> listData = null);
         bool Update(T item, List<T> listData= null);
     }

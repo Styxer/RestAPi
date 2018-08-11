@@ -17,15 +17,16 @@ namespace RestAPiServer.Models.WorkPackagess
 
         public WorkPackagesRepository()
         {
-            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(1), EndTime = DateTime.Now.AddDays(3), employee = employe.Get(1), task = task.Get(1) });
-            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(10), EndTime = DateTime.Now.AddDays(30), employee = employe.Get(2), task = task.Get(2) });
-            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(15), EndTime = DateTime.Now.AddDays(35), employee = employe.Get(3), task = task.Get(3) });
+            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(-1), EndTime = DateTime.Now.AddDays(3), employee = employe.Get(1), task = task.Get(1) });
+            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(-10), EndTime = DateTime.Now.AddDays(30), employee = employe.Get(2), task = task.Get(2) });
+            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(-15), EndTime = DateTime.Now.AddDays(35), employee = employe.Get(3), task = task.Get(3) });
 
         }
 
-        public WorkPackage Add(WorkPackage item, List<WorkPackage> listData = null, int nextID = 1)
+        public WorkPackage Add(WorkPackage item, List<WorkPackage> listData = null)
         {
-            return baseRepository.Add(item, workPackagess, _nextId);
+            item.Id = _nextId++;
+            return baseRepository.Add(item, workPackagess);
         }
 
         public WorkPackage Get(int id, List<WorkPackage> listData = null)

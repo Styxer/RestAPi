@@ -21,9 +21,10 @@ namespace RestAPiServer.Models.Customerss
            
         }
 
-        public Customer Add(Customer item, List<Customer> listData = null, int nextID = 1)
+        public Customer Add(Customer item, List<Customer> listData = null)
         {
-           return baseRepository.Add(item, customers, _nextId);
+            item.Id = _nextId++;
+            return baseRepository.Add(item, customers);
         }
 
         public Customer Get(int id, List<Customer> listData = null)

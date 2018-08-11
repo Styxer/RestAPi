@@ -22,9 +22,10 @@ namespace RestAPiServer.Models.WorkPackagess
             Add(new Task { TaskName = "paint the droids", project = project.Get(3) });
         }
 
-        public Task Add(Task item, List<Task> listData = null, int nextID = 1)
+        public Task Add(Task item, List<Task> listData = null)
         {
-            return baseRepository.Add(item, tasks, _nextId);
+            item.Id = _nextId++;
+            return baseRepository.Add(item, tasks);
         }
 
         public Task Get(int id, List<Task> listData = null)
