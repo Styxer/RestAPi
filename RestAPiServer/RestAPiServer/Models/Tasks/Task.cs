@@ -7,8 +7,7 @@ namespace RestAPiServer.Models.Projects
 {
     public class Task : Base.BaseModel
     {       
-        public string taskName { get; set; }
-        public int MyProperty { get; set; }
+        public string TaskName { get; set; }       
         public Project project { get; set; }
 
     }

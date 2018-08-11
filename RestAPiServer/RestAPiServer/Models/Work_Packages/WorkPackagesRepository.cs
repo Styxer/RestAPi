@@ -1,64 +1,51 @@
-﻿//using RestAPiServer.Models.Projects;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Web;
+﻿using RestAPiServer.Models.Base;
+using RestAPiServer.Models.Projects;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-//namespace RestAPiServer.Models.WorkPackagess
-//{
-//    public class WorkPackagesRepository : IRepository<WorkPackages>
-//    {
-//        private List<WorkPackages> WorkPackagess = new List<WorkPackages>();
-//        private int _nextId = 1;
+namespace RestAPiServer.Models.WorkPackagess
+{
+    public class WorkPackagesRepository : IRepository<WorkPackage>
+    {
+        private List<WorkPackage> workPackagess = new List<WorkPackage>();
+        IRepository<Employe> employe = new EmployeeRepository();
+        IRepository<Task> task = new TaskRepository();
+        private BaseRepository<WorkPackage> baseRepository = new BaseRepository<WorkPackage>();
+        private int _nextId = 1;
 
-//        public WorkPackagesRepository()
-//        {
-//            Add(new WorkPackages { StartTime = DateTime.Now.AddDays(1) , EndTime = DateTime.Now.AddDays(3) });
-//            Add(new WorkPackages { StartTime = DateTime.Now.AddDays(10), EndTime = DateTime.Now.AddDays(30) });
-//            Add(new WorkPackages { StartTime = DateTime.Now.AddDays(15), EndTime = DateTime.Now.AddDays(35) });
-           
-//        }
+        public WorkPackagesRepository()
+        {
+            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(1), EndTime = DateTime.Now.AddDays(3), employee = employe.Get(1), task = task.Get(1) });
+            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(10), EndTime = DateTime.Now.AddDays(30), employee = employe.Get(2), task = task.Get(2) });
+            Add(new WorkPackage { StartTime = DateTime.Now.AddDays(15), EndTime = DateTime.Now.AddDays(35), employee = employe.Get(3), task = task.Get(3) });
 
-//        public WorkPackages Add(WorkPackages item)
-//        {
-//            if (item == null)
-//            {
-//                throw new ArgumentNullException("item WorkPackages");
-//            }
+        }
 
-//            item.Id = _nextId++;
-//            WorkPackagess.Add(item);
-//            return item;
-//        }
+        public WorkPackage Add(WorkPackage item, List<WorkPackage> listData = null, int nextID = 1)
+        {
+            return baseRepository.Add(item, workPackagess, _nextId);
+        }
 
-//        public WorkPackages Get(int id)
-//        {
-//            return WorkPackagess.Find(p => p.Id == id);
-//        }
+        public WorkPackage Get(int id, List<WorkPackage> listData = null)
+        {
+            return baseRepository.Get(id, workPackagess);
+        }
 
-//        public IEnumerable<WorkPackages> GetAll()
-//        {
-//            return WorkPackagess;
-//        }
+        public IEnumerable<WorkPackage> GetAll(List<WorkPackage> listData = null)
+        {
+            return baseRepository.GetAll(workPackagess);
+        }
 
-//        public void Remove(int id)
-//        {
-//            WorkPackagess.RemoveAll(p => p.Id == id);
-//        }
+        public void Remove(int id, List<WorkPackage> listData = null)
+        {
+            baseRepository.Remove(id, workPackagess);
+        }
 
-//        public bool Update(WorkPackages item)
-//        {
-//            var result = true;
-//            if (item == null)    //no item        
-//                throw new ArgumentNullException("item");
-            
-//            int index = WorkPackagess.FindIndex(p => p.Id == item.Id);
-//            if (index == -1)   //item not found         
-//                result = false;
-            
-//            WorkPackagess.RemoveAt(index);
-//            WorkPackagess.Add(item);
-//            return result;
-//        }
-//    }
-//}
+        public bool Update(WorkPackage item, List<WorkPackage> listData = null)
+        {
+            return baseRepository.Update(item, workPackagess);
+        }
+    }
+}

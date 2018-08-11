@@ -11,37 +11,37 @@ namespace RestAPiServer.Models.Customerss
     {
         private List<Customer> customers = new List<Customer>();
         private BaseRepository<Customer> baseRepository = new BaseRepository<Customer>();
-    //    private int _nextId = 1;
+        private int _nextId = 1;
 
         public CustomersRepository()
         {
-            Add(new Customer { CustName = "Han solo" }, customers);
-            Add(new Customer { CustName = "Princess Lea" }, customers);
-            Add(new Customer { CustName = "Chewi"}, customers);
+            Add(new Customer { CustName = "Han solo" });
+            Add(new Customer { CustName = "Princess Lea" });
+            Add(new Customer { CustName = "Chewi"});
            
         }
 
-        public Customer Add(Customer item, List<Customer> listData)
+        public Customer Add(Customer item, List<Customer> listData = null, int nextID = 1)
         {
-           return baseRepository.Add(item, customers);
+           return baseRepository.Add(item, customers, _nextId);
         }
 
-        public Customer Get(int id, List<Customer> listData)
+        public Customer Get(int id, List<Customer> listData = null)
         {
             return baseRepository.Get(id, customers);
         }
 
-        public IEnumerable<Customer> GetAll(List<Customer> listData)
+        public IEnumerable<Customer> GetAll(List<Customer> listData = null)
         {
             return baseRepository.GetAll(customers);
         }
 
-        public void Remove(int id, List<Customer> listData)
+        public void Remove(int id, List<Customer> listData= null)
         {
              baseRepository.Remove(id, customers);
         }
 
-        public bool Update(Customer item, List<Customer> listData)
+        public bool Update(Customer item, List<Customer> listData = null)
         {
            return baseRepository.Update(item, customers);
         }

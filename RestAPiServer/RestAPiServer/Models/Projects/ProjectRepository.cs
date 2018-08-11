@@ -1,4 +1,5 @@
 ﻿using RestAPiServer.Models.Base;
+using RestAPiServer.Models.Customerss;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,37 +11,38 @@ namespace RestAPiServer.Models.Projects
     {
         private List<Project> projects = new List<Project>();
         private BaseRepository<Project> baseRepository = new BaseRepository<Project>();
+        IRepository<Customer> customer = new CustomersRepository();
         private int _nextId = 1;
 
         public ProjectRepository()
         {
-            Add(new Project { ProjectName = "build the death start", Tariff = 10.2, customer = new Customer() { CustName= "f", Id =2} }, projects);
-          //  Add(new Project { ProjectName = "find the Millennium falcon", CustName = "Han solo", CustId = 2, Tariff = 66.7 }, projects);
-          //  Add(new Project { ProjectName = "look for the druids", CustName = "Clone trooper", CustId = 3, Tariff = 104.2 } , projects);
-            //Add(new Project { Name = "Hammer", Category = "Hardware", Price = 16.99M });
+            Add(new Project { ProjectName = "build the death start", Tariff = 10.2, Customer = customer.Get(1) });
+            Add(new Project { ProjectName = "find the Millennium falcon", Tariff = 66.7, Customer = customer.Get(1) });
+            Add(new Project { ProjectName = "look for the druids",  Tariff = 104.2, Customer = customer.Get(2) });
+            Add(new Project { ProjectName = "do the Hammer Time", Tariff = 16.99, Customer = customer.Get(3) });
         }
 
-        public Project Add(Project item, List<Project> listData)
+        public Project Add(Project item, List<Project> listData = null, int nextID = 1)
         {
-            return baseRepository.Add(item, projects);
+            return baseRepository.Add(item, projects, _nextId);
         }
 
-        public Project Get(int id, List<Project> listData)
+        public Project Get(int id, List<Project> listData = null)
         {
             return baseRepository.Get(id, projects);
         }
 
-        public IEnumerable<Project> GetAll(List<Project> listData)
+        public IEnumerable<Project> GetAll(List<Project> listData = null)
         {
             return baseRepository.GetAll(projects);
         }
 
-        public void Remove(int id, List<Project> listData)
+        public void Remove(int id, List<Project> listData = null)
         {
             baseRepository.Remove(id, projects);
         }
 
-        public bool Update(Project item, List<Project> listData)
+        public bool Update(Project item, List<Project> listData  = null)
         {
             return baseRepository.Update(item, projects);
         }

@@ -195,8 +195,8 @@
     <Compile Include="Models\Repos.cs" />
     <Compile Include="Models\Tasks\Task.cs" />
     <Compile Include="Models\Tasks\TaskRepository.cs" />
-    <Compile Include="Models\Employees\Employees.cs" />
-    <Compile Include="Models\Employees\EmployeeRepository.cs" />
+    <Compile Include="Models\Employees\Employe.cs" />
+    <Compile Include="Models\Employees\EmployeRepository.cs" />
     <Compile Include="Models\Work_Packages\WorkPackages.cs" />
     <Compile Include="Models\Work_Packages\WorkPackagesRepository.cs" />
     <Compile Include="Models\Customers\Customer.cs" />

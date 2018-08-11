@@ -8,10 +8,10 @@ namespace RestAPiServer.Models.Projects
 {
     public interface IRepository<T>
     {
-        IEnumerable<T> GetAll(List<T> listData);
-        T Get(int id, List<T> listData);
-        T Add(T item, List<T> listData);      
-        void Remove(int id, List<T> listData);
-        bool Update(T item, List<T> listData);
+        IEnumerable<T> GetAll(List<T> listData = null);
+        T Get(int id, List<T> listData = null);
+        T Add(T item, List<T> listData = null, int nextID  = 1);      
+        void Remove(int id, List<T> listData = null);
+        bool Update(T item, List<T> listData= null);
     }
 }

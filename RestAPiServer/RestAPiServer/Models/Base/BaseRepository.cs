@@ -30,14 +30,14 @@ namespace RestAPiServer.Models.Base
             return listData.Find(p => p.Id == id);
         }
 
-        public T Add(T item, List<T> listData)
+        public T Add(T item, List<T> listData, int nextId)
         {
             if (item == null)
             {
                 throw new ArgumentNullException("item Customers");
             }
 
-            item.Id = _nextId++;
+            item.Id = nextId++;
             if (listData == null)
                 listData = new List<T>();
             listData.Add(item);//// ......

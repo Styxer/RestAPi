@@ -190,3 +190,4 @@ C:\Users\ofir\Source\Repos\RestAPi\RestAPiServer\RestAPiServer\bin\Microsoft.AI.
 C:\Users\ofir\Source\Repos\RestAPi\RestAPiServer\RestAPiServer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\ofir\Source\Repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.dll
 C:\Users\ofir\Source\Repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.pdb
+C:\Users\ofir\Source\Repos\RestAPi\RestAPiServer\RestAPiServer\obj\Debug\RestAPiServer.csprojResolveAssemblyReference.cache
