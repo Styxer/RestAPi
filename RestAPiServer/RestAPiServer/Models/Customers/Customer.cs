@@ -5,7 +5,7 @@ using System.Web;
 
 namespace RestAPiServer.Models.Projects
 {
-    public class Customers : Base.BaseModel
+    public class Customer : Base.BaseModel
     {        
         public string CustName { get; set; } = String.Empty;
       

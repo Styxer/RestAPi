@@ -7,43 +7,43 @@ using System.Web;
 
 namespace RestAPiServer.Models.Customerss
 {
-    public class CustomersRepository : IRepository<Customers>
+    public class CustomersRepository : IRepository<Customer>
     {
-        private List<Customers> customers = new List<Customers>();
-        private BaseRepository<Customers> baseRepository = new BaseRepository<Customers>();
-        private int _nextId = 1;
+        private List<Customer> customers = new List<Customer>();
+        private BaseRepository<Customer> baseRepository = new BaseRepository<Customer>();
+    //    private int _nextId = 1;
 
         public CustomersRepository()
         {
-            Add(new Customers { CustName = "Han solo" });
-            Add(new Customers { CustName = "Princess Lea" });
-            Add(new Customers { CustName = "Chewi"});
+            Add(new Customer { CustName = "Han solo" }, customers);
+            Add(new Customer { CustName = "Princess Lea" }, customers);
+            Add(new Customer { CustName = "Chewi"}, customers);
            
         }
 
-        public Customers Add(Customers item, List<Customers> listData = null)
+        public Customer Add(Customer item, List<Customer> listData)
         {
-           return baseRepository.Add(item, listData);
+           return baseRepository.Add(item, customers);
         }
 
-        public Customers Get(int id, List<Customers> listData)
+        public Customer Get(int id, List<Customer> listData)
         {
-            return baseRepository.Get(id, listData);
+            return baseRepository.Get(id, customers);
         }
 
-        public IEnumerable<Customers> GetAll(List<Customers> listData)
+        public IEnumerable<Customer> GetAll(List<Customer> listData)
         {
-            return baseRepository.GetAll(listData);
+            return baseRepository.GetAll(customers);
         }
 
-        public void Remove(int id, List<Customers> listData)
+        public void Remove(int id, List<Customer> listData)
         {
-             baseRepository.Remove(id, listData);
+             baseRepository.Remove(id, customers);
         }
 
-        public bool Update(Customers item, List<Customers> listData)
+        public bool Update(Customer item, List<Customer> listData)
         {
-           return baseRepository.Update(item, listData);
+           return baseRepository.Update(item, customers);
         }
     }
 }

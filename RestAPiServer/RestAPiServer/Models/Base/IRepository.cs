@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestAPiServer.Models.Projects
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         IEnumerable<T> GetAll(List<T> listData);
         T Get(int id, List<T> listData);

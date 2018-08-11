@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestAPiServer.Models.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,56 +9,40 @@ namespace RestAPiServer.Models.Projects
     public class ProjectRepository : IRepository<Project>
     {
         private List<Project> projects = new List<Project>();
+        private BaseRepository<Project> baseRepository = new BaseRepository<Project>();
         private int _nextId = 1;
 
         public ProjectRepository()
         {
-            Add(new Project { ProjectName = "build the death start", CustName = "Lord vader" , CustId = 1, Tariff = 10.2 });
-            Add(new Project { ProjectName = "find the Millennium falcon", CustName = "Han solo", CustId = 2, Tariff = 66.7 });
-            Add(new Project { ProjectName = "look for the druids", CustName = "Clone trooper", CustId = 3, Tariff = 104.2 });
+            Add(new Project { ProjectName = "build the death start", Tariff = 10.2, customer = new Customer() { CustName= "f", Id =2} }, projects);
+          //  Add(new Project { ProjectName = "find the Millennium falcon", CustName = "Han solo", CustId = 2, Tariff = 66.7 }, projects);
+          //  Add(new Project { ProjectName = "look for the druids", CustName = "Clone trooper", CustId = 3, Tariff = 104.2 } , projects);
             //Add(new Project { Name = "Hammer", Category = "Hardware", Price = 16.99M });
         }
 
-        public Project Get(int id)
+        public Project Add(Project item, List<Project> listData)
         {
-            return projects.Find(p => p.Id == id);
+            return baseRepository.Add(item, projects);
         }
 
-        public Project Add(Project item)
+        public Project Get(int id, List<Project> listData)
         {
-            if (item == null)
-            {
-                throw new ArgumentNullException("item Project");
-            }
-
-            item.Id = _nextId++;
-            projects.Add(item);
-            return item;
+            return baseRepository.Get(id, projects);
         }
 
-        public IEnumerable<Project> GetAll()
+        public IEnumerable<Project> GetAll(List<Project> listData)
         {
-            return projects;
+            return baseRepository.GetAll(projects);
         }
 
-        public void Remove(int id)
+        public void Remove(int id, List<Project> listData)
         {
-            projects.RemoveAll(p => p.Id == id);
+            baseRepository.Remove(id, projects);
         }
 
-        public bool Update(Project item)
+        public bool Update(Project item, List<Project> listData)
         {
-            var result = true;
-            if (item == null)    //no item        
-                throw new ArgumentNullException("item");
-            
-            int index = projects.FindIndex(p => p.Id == item.Id);
-            if (index == -1)   //item not found         
-                result = false;
-            
-            projects.RemoveAt(index);
-            projects.Add(item);
-            return result;
+            return baseRepository.Update(item, projects);
         }
     }
 }

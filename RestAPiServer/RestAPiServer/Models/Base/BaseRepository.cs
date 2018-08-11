@@ -8,21 +8,12 @@ namespace RestAPiServer.Models.Base
 {
     public class BaseRepository<T> : IRepository<T>  where T: BaseModel 
     {
-        private IEnumerable<T> listData;
-        private List<Customers> customers = new List<Customers>();
+       // private List<T> listData;
+       
 
         private int _nextId = 0;
         // private int _nextId = 1;
-
-        public enum RepoType
-        {
-            Projects,
-            Employees,
-            Tasks,
-            Work_Packages,
-            Customers
-        }
-
+        
         public BaseRepository()
         {
             _nextId = 0;        
@@ -45,8 +36,10 @@ namespace RestAPiServer.Models.Base
             {
                 throw new ArgumentNullException("item Customers");
             }
-         
-           // item.Id = _nextId++;
+
+            item.Id = _nextId++;
+            if (listData == null)
+                listData = new List<T>();
             listData.Add(item);//// ......
             return item;
         }
