@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace RestAPiClient
 {
-    public partial class ProjectsScreen : Form
+    public partial class ProjectsScreen : baseContentPanel
     { 
 
         List<Project> _projects;
@@ -19,12 +19,13 @@ namespace RestAPiClient
         public ProjectsScreen()
         {
             InitializeComponent();
+         
         }
 
         public async void  initScreen()
         {
           //  var customers = 
-            var result = await Project.getAllProject<Project>("projects");
+            var result = await HttpHelper.getAll<Project>(controllerName);
             _projects = result.ToList();        
             setItemToDataGrid();
         }

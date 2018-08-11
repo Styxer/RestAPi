@@ -5,7 +5,6 @@ D:\repos\RestAPi\RestAPiClient\RestAPiClient\bin\Debug\Newtonsoft.Json.dll
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\bin\Debug\System.Net.Http.Formatting.dll
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\bin\Debug\Newtonsoft.Json.xml
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\bin\Debug\System.Net.Http.Formatting.xml
-D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.csprojAssemblyReference.cache
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.Properties.Resources.resources
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.csproj.GenerateResource.cache
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.csproj.CoreCompileInputs.cache
@@ -14,3 +13,6 @@ D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.exe
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.pdb
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.MainScreen.resources
 D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.ProjectsScreen.resources
+D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.baseContentPanel.resources
+D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.csprojAssemblyReference.cache
+D:\repos\RestAPi\RestAPiClient\RestAPiClient\obj\Debug\RestAPiClient.Screens.CustomersScreen.resources

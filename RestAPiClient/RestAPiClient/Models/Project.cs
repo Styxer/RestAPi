@@ -15,19 +15,7 @@ namespace RestAPiClient
         public double Tariff { get; set; } = 0;
 
 
-        #region getAllProjectAsync
-        public static async Task<IEnumerable<T>> getAllProject<T>(string controllerName)
-        {
-            string path = HttpHelper.baseApiLocation + @"/api/"+ controllerName;
-            IEnumerable<T> projects = null;
-            HttpResponseMessage response = await HttpHelper.client.GetAsync(path).ConfigureAwait(false);
-            if (response.IsSuccessStatusCode)
-            {
-                projects = await response.Content.ReadAsAsync<IEnumerable<T>>();
-            }
-            return projects;
-        }
-        #endregion
+    
 
 
     }
