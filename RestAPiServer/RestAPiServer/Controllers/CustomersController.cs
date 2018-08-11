@@ -21,25 +21,24 @@ namespace RestAPiServer.Controllers
             return baseRepo.Get(repo);
         }
 
-        // GET: api/Customers/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+
 
         // POST: api/Customers
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post(Customer item)
         {
+            return baseRepo.Post(item, repo);
         }
 
         // PUT: api/Customers/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, Customer product)
         {
+            baseRepo.Put(id, product, repo);
         }
 
         // DELETE: api/Customers/5
         public void Delete(int id)
         {
+            baseRepo.Delete(id, repo);
         }
     }
 }

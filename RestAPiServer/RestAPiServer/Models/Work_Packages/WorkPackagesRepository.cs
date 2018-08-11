@@ -10,7 +10,7 @@ namespace RestAPiServer.Models.WorkPackagess
     public class WorkPackagesRepository : IRepository<WorkPackage>
     {
         private List<WorkPackage> workPackagess = new List<WorkPackage>();
-        IRepository<Employe> employe = new EmployeeRepository();
+        IRepository<Employe> employe = new EmployeRepository();
         IRepository<Task> task = new TaskRepository();
         private BaseRepository<WorkPackage> baseRepository = new BaseRepository<WorkPackage>();
         private int _nextId = 1;

@@ -14,6 +14,7 @@ namespace RestAPiServer.Controllers
 
         static readonly IRepository<Project> repo = new ProjectRepository();
         static readonly BaseController<Project> baseRepo = new BaseController<Project>();
+
         // GET: api/projects
         public IEnumerable<Project> Get()
         {
@@ -25,29 +26,19 @@ namespace RestAPiServer.Controllers
         public HttpResponseMessage Post(Project item)
         {
             return baseRepo.Post(item, repo);
-            //item = repo.Add(item);
-            //var response = Request.CreateResponse<Project>(HttpStatusCode.Created, item);
-
-            //string uri = Url.Link("DefaultApi", new { id = item.Id });
-            //response.Headers.Location = new Uri(uri);
-            //return response;
+          
         }
 
         // PUT: api/projects/5
-        public void Put(int id, Project product)
+        public void Put(int id, Project item)
         {
-            baseRepo.Put(id, product, repo);
-            //product.Id = id;
-            //if (!repo.Update(product))
-            //{
-            //    throw new HttpResponseException(HttpStatusCode.NotFound);
-            //}
+            baseRepo.Put(id, item, repo);
+           
         }
 
         // DELETE: api/projects/5
         public void Delete(int id)
-        {
-            // repo.Remove(id);
+        {       
             baseRepo.Delete(id, repo);
         }
     }

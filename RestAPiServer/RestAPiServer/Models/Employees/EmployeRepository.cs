@@ -7,13 +7,13 @@ using System.Web;
 
 namespace RestAPiServer.Models.WorkPackagess
 {
-    public class EmployeeRepository : IRepository<Employe>
+    public class EmployeRepository : IRepository<Employe>
     {
         private List<Employe> employees = new List<Employe>();
         private BaseRepository<Employe> baseRepository = new BaseRepository<Employe>();
         private int _nextId = 1;
 
-        public EmployeeRepository()
+        public EmployeRepository()
         {
             Add(new Employe
             {

@@ -183,9 +183,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
+    <Compile Include="Controllers\Base\TaskController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\WorkPackagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,7 +200,7 @@
     <Compile Include="Models\Tasks\TaskRepository.cs" />
     <Compile Include="Models\Employees\Employe.cs" />
     <Compile Include="Models\Employees\EmployeRepository.cs" />
-    <Compile Include="Models\Work_Packages\WorkPackages.cs" />
+    <Compile Include="Models\Work_Packages\WorkPackage.cs" />
     <Compile Include="Models\Work_Packages\WorkPackagesRepository.cs" />
     <Compile Include="Models\Customers\Customer.cs" />
     <Compile Include="Models\Customers\CustomersRepository.cs" />
